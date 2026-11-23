@@ -1,0 +1,26 @@
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = [
+    "E4",
+    "E7",
+    "E9",
+    "F",
+    "I001",
+    "B008",
+    "PLR1711",
+    "RET501",
+    "RUF012",
+    "SIM102",
+    "UP017",
+]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = [
+    "fastapi.Depends",
+    "fastapi.Query",
+    "fastapi.Path",
+    "app.core.security.require_role",
+]

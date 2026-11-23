@@ -1,0 +1,36 @@
+﻿# Variables de entorno y secretos
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Entornos virtuales de Python
+.venv/
+**/.venv/
+
+# Dependencias y compilación frontend
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+
+# Python
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Logs
+*.log
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Copia comprimida de revisión (no incluir en Git)
+FoodStore_revision.zip

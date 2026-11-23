@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+/* =====================================
+   TEMA OSCURO 
+   ===================================== */
+
+/* Fondos de tarjetas, paneles y modales */
+.dark .bg-white {
+  background-color: #1f2937;
+}
+
+.dark .bg-gray-100 {
+  background-color: #374151;
+}
+
+.dark .bg-gray-200 {
+  background-color: #4b5563;
+}
+
+/* Textos */
+.dark .text-gray-900,
+.dark .text-gray-800,
+.dark .text-gray-700 {
+  color: #f9fafb;
+}
+
+.dark .text-gray-600 {
+  color: #d1d5db;
+}
+
+.dark .text-gray-500,
+.dark .text-gray-400 {
+  color: #9ca3af;
+}
+
+/* Bordes y separadores */
+.dark .border-gray-100,
+.dark .border-gray-200,
+.dark .border-gray-300,
+.dark .border-b {
+  border-color: #4b5563;
+}
+
+/* Efectos hover */
+.dark .hover\:bg-gray-50:hover {
+  background-color: #374151;
+}
+
+.dark .hover\:bg-gray-300:hover {
+  background-color: #4b5563;
+}
+
+.dark .hover\:text-gray-800:hover {
+  color: #f9fafb;
+}
+
+/* Campos de formularios */
+.dark input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+.dark select,
+.dark textarea {
+  background-color: #111827;
+  color: #f9fafb;
+  border-color: #4b5563;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #9ca3af;
+}

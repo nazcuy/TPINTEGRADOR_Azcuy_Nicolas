@@ -1,0 +1,106 @@
+@baseUrl = http://localhost:8000
+@pedidoId = 5
+
+### 1. Login de usuario
+# Ejecutar primero para obtener la cookie access_token.
+POST {{baseUrl}}/api/v1/auth/token
+Content-Type: application/x-www-form-urlencoded
+
+username=usuario_prueba_tpi&password=Prueba1234!
+
+### 2. Crear pedido
+# Esperado: 201 Created.
+POST {{baseUrl}}/api/v1/pedidos
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "producto_id": 6,
+      "cantidad": 1
+    }
+  ],
+  "forma_pago": "EFECTIVO",
+  "direccion_entrega": "Av. Siempre Viva 742, Lanus",
+  "notas": "Prueba desde pedidos.http"
+}
+
+### 3. Listar pedidos propios
+# Esperado: 200. Devuelve total e items.
+GET {{baseUrl}}/api/v1/pedidos
+
+### 4. Obtener un pedido propio
+# Modificar @pedidoId con el ID devuelto al crear el pedido.
+GET {{baseUrl}}/api/v1/pedidos/{{pedidoId}}
+
+### 5. Probar productos repetidos
+# Esperado: 400.
+POST {{baseUrl}}/api/v1/pedidos
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "producto_id": 1,
+      "cantidad": 1
+    },
+    {
+      "producto_id": 1,
+      "cantidad": 2
+    }
+  ],
+  "forma_pago": "TRANSFERENCIA",
+  "direccion_entrega": "Av. Siempre Viva 742, Lanus"
+}
+
+### 6. Probar stock insuficiente
+# Esperado: 400. No debe descontar stock.
+POST {{baseUrl}}/api/v1/pedidos
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "producto_id": 1,
+      "cantidad": 999
+    }
+  ],
+  "forma_pago": "EFECTIVO",
+  "direccion_entrega": "Av. Siempre Viva 742, Lanus"
+}
+
+### 7. Cancelar pedido propio pendiente
+# Esperado: 200 y estado CANCELADO.
+PATCH {{baseUrl}}/api/v1/pedidos/{{pedidoId}}/cancelar
+
+### 8. Login de administrador
+# Ejecutar para reemplazar la cookie por la sesión administrativa.
+POST {{baseUrl}}/api/v1/auth/token
+Content-Type: application/x-www-form-urlencoded
+
+username=admin&password=Admin1234!
+
+### 9. Listar todos los pedidos
+# Esperado: 200. El administrador ve los pedidos de todos los usuarios.
+GET {{baseUrl}}/api/v1/pedidos
+
+### 10. Consultar resumen administrativo
+GET {{baseUrl}}/api/v1/pedidos/resumen
+
+### 11. Cambiar estado como administrador
+# Modificar @pedidoId por el ID de un pedido que esté PENDIENTE.
+PATCH {{baseUrl}}/api/v1/pedidos/{{pedidoId}}/estado
+Content-Type: application/json
+
+{
+  "estado": "EN_PREPARACION"
+}
+
+### 12. Marcar como entregado
+# El pedido debe estar EN_PREPARACION.
+PATCH {{baseUrl}}/api/v1/pedidos/{{pedidoId}}/estado
+Content-Type: application/json
+
+{
+  "estado": "ENTREGADO"
+}
