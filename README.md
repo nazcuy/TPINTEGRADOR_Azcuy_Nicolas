@@ -4,6 +4,12 @@ Sistema web de gestión y venta de productos gastronómicos desarrollado para la
 
 El proyecto permite consultar un catálogo de productos, administrar categorías y productos, realizar compras, gestionar pedidos y administrar usuarios según sus roles.
 
+## Enlaces de entrega
+
+- Repositorio público de GitHub: https://github.com/nazcuy/TPINTEGRADOR_Azcuy_Nicolas.git
+
+- Video de demostración (10 a 15 minutos): https://youtu.be/kQCBK88fvMQ
+
 ## Tecnologías utilizadas
 
 ### Backend
@@ -346,7 +352,3 @@ TPINTEGRADOR_Azcuy_Nicolas/
 **Materia:** Programación IV  
 **Tipo de aplicación:** Sistema web de gestión y venta de productos gastronómicos.
 
-## Enlaces de entrega
-
-- Repositorio público de GitHub: https://github.com/nazcuy/TPINTEGRADOR_Azcuy_Nicolas.git
-- Video de demostración (10 a 15 minutos): https://youtu.be/kQCBK88fvMQ
