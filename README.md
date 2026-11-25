@@ -348,5 +348,5 @@ TPINTEGRADOR_Azcuy_Nicolas/
 
 ## Enlaces de entrega
 
-- Repositorio público de GitHub: PENDIENTE
-- Video de demostración (10 a 15 minutos): PENDIENTE
+- Repositorio público de GitHub: https://github.com/nazcuy/TPINTEGRADOR_Azcuy_Nicolas.git
+- Video de demostración (10 a 15 minutos): https://youtu.be/kQCBK88fvMQ
